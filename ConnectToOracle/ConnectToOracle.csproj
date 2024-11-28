@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9AA4EE3-398E-49F6-B814-AE1693745071}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ConnectToOracle</RootNamespace>
+    <AssemblyName>ConnectToOracle</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ODACBase\product\12.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.21.13.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.21.9.0\lib\net462\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.Web, Version=2.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ODACBase\product\12.2.0\client_1\ASP.NET\bin\4\Oracle.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Formats.Asn1, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.7.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Create_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_User.Designer.cs">
+      <DependentUpon>Create_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="fAddNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddNhanSu.Designer.cs">
+      <DependentUpon>fAddNhanSu.cs</DependentUpon>
+    </Compile>
+    <!-- <<<<<<< HEAD -->
+    <Compile Include="fChangePhoneNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangePhoneNumber.Designer.cs">
+      <DependentUpon>fChangePhoneNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fChangeAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangeAdd.Designer.cs">
+      <DependentUpon>fChangeAdd.cs</DependentUpon>
+    </Compile>
+    <!-- ======= -->
+    <Compile Include="fAcademicAffair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAcademicAffair.Designer.cs">
+      <DependentUpon>fAcademicAffair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddEditAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddEditAssignment.Designer.cs">
+      <DependentUpon>fAddEditAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddEditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddEditCourse.Designer.cs">
+      <DependentUpon>fAddEditCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddEditDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddEditDepartment.Designer.cs">
+      <DependentUpon>fAddEditDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddEditOpenCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddEditOpenCourse.Designer.cs">
+      <DependentUpon>fAddEditOpenCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddEditStudent.Designer.cs">
+      <DependentUpon>fAddEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddPhanCong.Designer.cs">
+      <DependentUpon>fAddPhanCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddRegister.Designer.cs">
+      <DependentUpon>fAddRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAllAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAllAssignment.Designer.cs">
+      <DependentUpon>fAllAssignment.cs</DependentUpon>
+      <!-- >>>>>>> origin/Huy-Merge-V2 -->
+    </Compile>
+    <Compile Include="fCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCourse.Designer.cs">
+      <DependentUpon>fCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fCreateRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCreateRole.Designer.cs">
+      <DependentUpon>fCreateRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDepartment.Designer.cs">
+      <DependentUpon>fDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEditAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEditAssignment.Designer.cs">
+      <DependentUpon>fEditAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEditNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEditNhanSu.Designer.cs">
+      <DependentUpon>fEditNhanSu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEditPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEditPhanCong.Designer.cs">
+      <DependentUpon>fEditPhanCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEditUser.Designer.cs">
+      <DependentUpon>fEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fFGAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fFGAudit.Designer.cs">
+      <DependentUpon>fFGAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fGrantMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGrantMenu.Designer.cs">
+      <DependentUpon>fGrantMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fGrantPrivilegesToRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGrantPrivilegesToRole.Designer.cs">
+      <DependentUpon>fGrantPrivilegesToRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fGrantPrivilegesToUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGrantPrivilegesToUser.Designer.cs">
+      <DependentUpon>fGrantPrivilegesToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fGrantRoleToUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGrantRoleToUser.Designer.cs">
+      <DependentUpon>fGrantRoleToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fNhanSu.Designer.cs">
+      <DependentUpon>fNhanSu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fOpenCourseReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fOpenCourseReg.Designer.cs">
+      <DependentUpon>fOpenCourseReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fOpenCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fOpenCourse.Designer.cs">
+      <DependentUpon>fOpenCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllUserForm.Designer.cs">
+      <DependentUpon>AllUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fPhoneEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPhoneEdit.Designer.cs">
+      <DependentUpon>fPhoneEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fStandardAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStandardAudit.Designer.cs">
+      <DependentUpon>fStandardAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fStudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStudentInfo.Designer.cs">
+      <DependentUpon>fStudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fStudentScoreEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStudentScoreEdit.Designer.cs">
+      <DependentUpon>fStudentScoreEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStudent.Designer.cs">
+      <DependentUpon>fStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTeacher.Designer.cs">
+      <DependentUpon>fTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTeacherAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTeacherAssignment.Designer.cs">
+      <DependentUpon>fTeacherAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fStudentRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fStudentRegister.Designer.cs">
+      <DependentUpon>fStudentRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTeacherRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTeacherRegister.Designer.cs">
+      <DependentUpon>fTeacherRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Get_Privileges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Get_Privileges.Designer.cs">
+      <DependentUpon>Get_Privileges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrantRevokeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrantRevokeForm.Designer.cs">
+      <DependentUpon>GrantRevokeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AllUserForm.resx">
+      <DependentUpon>AllUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_User.resx">
+      <DependentUpon>Create_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddNhanSu.resx">
+      <DependentUpon>fAddNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <!-- <<<<<<< HEAD -->
+    <EmbeddedResource Include="fChangePhoneNumber.resx">
+      <DependentUpon>fChangePhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChangeAdd.resx">
+      <DependentUpon>fChangeAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <!-- ======= -->
+    <EmbeddedResource Include="fAcademicAffair.resx">
+      <DependentUpon>fAcademicAffair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddEditAssignment.resx">
+      <DependentUpon>fAddEditAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddEditCourse.resx">
+      <DependentUpon>fAddEditCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddEditDepartment.resx">
+      <DependentUpon>fAddEditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddEditOpenCourse.resx">
+      <DependentUpon>fAddEditOpenCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddEditStudent.resx">
+      <DependentUpon>fAddEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddPhanCong.resx">
+      <DependentUpon>fAddPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddRegister.resx">
+      <DependentUpon>fAddRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAllAssignment.resx">
+      <DependentUpon>fAllAssignment.cs</DependentUpon>
+      <!-- >>>>>>> origin/Huy-Merge-V2 -->
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCourse.resx">
+      <DependentUpon>fCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCreateRole.resx">
+      <DependentUpon>fCreateRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDepartment.resx">
+      <DependentUpon>fDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEditAssignment.resx">
+      <DependentUpon>fEditAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEditNhanSu.resx">
+      <DependentUpon>fEditNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEditPhanCong.resx">
+      <DependentUpon>fEditPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEditUser.resx">
+      <DependentUpon>fEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fFGAudit.resx">
+      <DependentUpon>fFGAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fGrantMenu.resx">
+      <DependentUpon>fGrantMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fGrantPrivilegesToRole.resx">
+      <DependentUpon>fGrantPrivilegesToRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fGrantPrivilegesToUser.resx">
+      <DependentUpon>fGrantPrivilegesToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fGrantRoleToUser.resx">
+      <DependentUpon>fGrantRoleToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fNhanSu.resx">
+      <DependentUpon>fNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fOpenCourseReg.resx">
+      <DependentUpon>fOpenCourseReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fOpenCourse.resx">
+      <DependentUpon>fOpenCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPhoneEdit.resx">
+      <DependentUpon>fPhoneEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStandardAudit.resx">
+      <DependentUpon>fStandardAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStudentInfo.resx">
+      <DependentUpon>fStudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStudentScoreEdit.resx">
+      <DependentUpon>fStudentScoreEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStudent.resx">
+      <DependentUpon>fStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTeacher.resx">
+      <DependentUpon>fTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTeacherAssignment.resx">
+      <DependentUpon>fTeacherAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fStudentRegister.resx">
+      <DependentUpon>fStudentRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTeacherRegister.resx">
+      <DependentUpon>fTeacherRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Get_Privileges.resx">
+      <DependentUpon>Get_Privileges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrantRevokeForm.resx">
+      <DependentUpon>GrantRevokeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\9131529.png" />
+    <None Include="Images\icons8-home-60.png" />
+    <None Include="Images\icons8-home-30.png" />
+    <None Include="Images\home.png" />
+    <None Include="Images\icons8-add-user-64.png" />
+    <None Include="Images\icons8-add-user-24.png" />
+    <None Include="Images\icons8-community-30.png" />
+    <None Include="Images\icons8-user-96.png" />
+    <None Include="Images\user.png" />
+    <None Include="Images\tap.png" />
+    <None Include="Images\logout-512.png" />
+    <Content Include="SQL Script\Create_Admin.sql" />
+    <Content Include="SQL Script\DropAll.sql" />
+    <Content Include="SQL Script\Procedure.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>
